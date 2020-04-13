@@ -1,5 +1,2 @@
 /node_modules
-*lock.json
-*lock
-*.lock
-*/vendor
+package-lock.json
