@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const logger = require('fluent-logger');
 const app = express();
 
-logger.configure('node_logger', {
+logger.configure('client_logger', {
     host: 'fluentd',
     port: 24224,
     timeout: 3.0,
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.post('/log', function(request, response) {
-    logger.emit('guests', request.body);
+    logger.emit('access', request.body);
     response.send('>>>>>>>>> LOG SENT | by node.js <<<<<<<<<<<');
 });
 
